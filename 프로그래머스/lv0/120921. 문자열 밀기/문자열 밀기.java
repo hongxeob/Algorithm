@@ -2,9 +2,9 @@ class Solution {
     public int solution(String A, String B) {
         int answer = 0;
         String tA = A; // A를 담아줄 String 변수
-       
+
         for (int i = 0; i < A.length(); i++) {
-            if (tA.equals (B)) { // 결국 A의 변형인 tAA 와 비교군 문자열 B와 같아질 때는 몇번 반복 인가?
+            if (tA.equals(B)) { // 결국 A의 변형인 tA 와 비교군 문자열 B와 같아질 때는 몇번 반복 인가?
                 return answer;
             }
             String a = tA.substring(tA.length() - 1); // 문자열 a는 tA(A)의 맨 끝의 문자를 자른걸 저장
