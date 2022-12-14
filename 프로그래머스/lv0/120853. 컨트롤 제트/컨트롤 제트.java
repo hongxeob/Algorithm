@@ -2,13 +2,16 @@ import java.util.*;
 class Solution {
     public int solution(String s) {
         int answer = 0;
-        ArrayList<String> arr = new ArrayList<>(Arrays.asList(s.split(" ")));
-        while (arr.contains("Z")) {
-            arr.remove(arr.indexOf("Z") - 1);
-            arr.remove(arr.indexOf("Z"));
+        Stack<Integer> stack = new Stack<>();
+        for (String w : s.split(" ")) {
+            if (w.equals("Z")) {
+                stack.pop();
+            } else {
+                stack.push(Integer.parseInt(w));
+            } 
         }
-        for (int i = 0; i < arr.size(); i++) {
-            answer += Integer.parseInt(arr.get(i));
+        for (int i : stack) {
+            answer += i;
         }
         return answer;
     }
