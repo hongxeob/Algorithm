@@ -1,32 +1,15 @@
 class Solution {
-public int[] solution(String[] keyinput, int[] board) {
+    public int[] solution(String[] keyinput, int[] board) {
         int[] answer = {0, 0};
-        for (String s : keyinput) {
-            switch (s) {
-                case "up" -> {
-                    if (answer[1] >= board[1] / 2) {
-                        continue;
-                    }
-                    answer[1] += 1;
-                }
-                case "down" -> {
-                    if (answer[1] <= -(board[1] / 2)) {
-                        continue;
-                    }
-                    answer[1] -= 1;
-                }
-                case "right" -> {
-                    if (answer[0] >= board[0] / 2) {
-                        continue;
-                    }
-                    answer[0] += 1;
-                }
-                default -> {
-                    if (answer[0] <= -(board[0] / 2)) {
-                        continue;
-                    }
-                    answer[0] -= 1;
-                }
+        for (int i = 0; i < keyinput.length; i++) {
+            if (keyinput[i].equals("left")) {
+                answer[0] -= answer[0] > -(board[0] / 2) ? 1 : 0; // 더이상 못가면 0을 반환
+            } else if (keyinput[i].equals("right")) {
+                answer[0] += answer[0] < (board[0] / 2) ? 1 : 0;  // 더이상 못가면 0을 반환
+            } else if (keyinput[i].equals("down")) {
+                answer[1] -= answer[1] > -(board[1] / 2) ? 1 : 0;
+            } else if (keyinput[i].equals("up")) {
+                answer[1] += answer[1] < (board[1] / 2) ? 1 : 0;
             }
         }
         return answer;
