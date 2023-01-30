@@ -8,7 +8,7 @@ class Solution {
         int[] third = {3, 3, 1, 1, 2, 2, 4, 4, 5, 5}; //10개 반복
         int[] score = {0, 0, 0};
 
-        //수포자들 문제 맞힌 점수 계산
+        //수포자들의 맞힌 문제 갯수 계산
         for (int i = 0; i < answers.length; i++) {
             if (answers[i] == first[i % 5]) score[0]++;
             if (answers[i] == second[i % 8]) score[1]++;
@@ -16,14 +16,12 @@ class Solution {
         }
         //최대 점수 구하기
         int max = Math.max(score[0], Math.max(score[1], score[2]));
-
-        //최대 점수 가진 수포자 리스트 생성
+        
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < score.length; i++) {
-            if (max == score[i]) {
-                list.add(i + 1);
-            }
+            if (max == score[i]) list.add(i + 1);
         }
+
         int[] answer = new int[list.size()];
         for (int i = 0; i < list.size(); i++) {
             answer[i] = list.get(i);
