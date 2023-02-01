@@ -16,7 +16,7 @@ class Solution {
         // int형 배열에 저장 하는 과정
         int[] answer = new int[arrayList.size()];
         for (int i = 0; i < arrayList.size(); i++) {
-            answer[i] = arrayList.get(i); //hashSet은 get() 메소드 존재 X -> set은 순서와 상관없이 중복되지 않는 것을 저장하는게 목적익므로
+            answer[i] = arrayList.get(i); //hashSet은 get() 메소드 존재 X -> set은 순서와 상관없이 중복되지 않는 것을 저장하는게 목적이므로
         }
         return answer;
     }
