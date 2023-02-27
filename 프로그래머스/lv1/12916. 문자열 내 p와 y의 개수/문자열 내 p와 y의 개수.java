@@ -1,5 +1,5 @@
 class Solution {
-    boolean solution(String s) {
+   boolean solution(String s) {
         boolean answer = true;
         String[] arr = s.toLowerCase().split("");
         int p = 0;
