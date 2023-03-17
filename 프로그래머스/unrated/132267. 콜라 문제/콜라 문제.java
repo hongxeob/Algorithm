@@ -5,10 +5,10 @@ class Solution {
             if (n < a) {
                 break;
             }
-            int givenMart = (n / a) * b; //마트에서 주는 병 수
+            int givenMart = (n / a) * b;
             answer += givenMart;
-            int remain = n % a; // 남은병
-            n = givenMart + remain; // 마트에서 받은 병 + 남은병 (현재 병)
+            int remain = n % a;
+            n = givenMart + remain;
         }
         return answer;
     }
