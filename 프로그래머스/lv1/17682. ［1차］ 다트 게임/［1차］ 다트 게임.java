@@ -1,5 +1,5 @@
 class Solution {
-    public int solution(String dartResult) {
+ public int solution(String dartResult) {
         int answer = 0;
         String[] dart = dartResult.split("");
         int[] score = new int[3];
@@ -17,17 +17,17 @@ class Solution {
                 case "D":
                     score[index] = (int) Math.pow(score[index], 2);
                     break;
+
                 case "T":
                     score[index] = (int) Math.pow(score[index], 3);
                     break;
                 case "*":
                     score[index] *= 2;
-                    if (index-1>=0) score[index - 1] *= 2;
+                    if (index - 1 >= 0) score[index - 1] *= 2;
                     break;
                 case "#":
                     score[index] *= -1;
             }
-            
         }
         for (int i : score) {
             answer += i;
