@@ -1,16 +1,16 @@
 class Solution {
-public String solution(String s, int n) {
-            String answer = "";
-            for(char ch : s.toCharArray()) {
-                if(ch==' ') {
-                    answer += ch;
-                }else if(ch>='a'&& ch<='z'){
-                    answer += (char)('a' + (ch+n-'a')%26);
-                }else {
-                    answer += (char)('A' + (ch+n-'A')%26);
-                }
+    public String solution(String s, int n) {
+        String answer = "";
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (Character.isLowerCase(ch)) {
+                ch = (char) ((ch - 'a' + n) % 26 + 'a');
+            } else if (Character.isUpperCase(ch)) {
+                ch = (char) ((ch - 'A' + n) % 26 + 'A');
             }
-            System.out.println(answer);
-            return answer;
+            answer += ch;
+
         }
+        return answer;
     }
+}
