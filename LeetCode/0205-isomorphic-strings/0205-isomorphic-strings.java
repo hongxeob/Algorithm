@@ -1,8 +1,8 @@
+import java.util.*;
 class Solution {
     public boolean isIsomorphic(String s, String t) {
         HashMap<Character, Character> map = new HashMap<>();
-        int length = s.length();
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < s.length(); i++) {
             char sc = s.charAt(i);
             char tc = t.charAt(i);
             if (i == 0) {
