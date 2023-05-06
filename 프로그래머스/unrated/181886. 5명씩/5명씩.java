@@ -1,16 +1,18 @@
+import java.util.*;
 class Solution {
-        public String[] solution(String[] names) {
-        String[] answer;
-        int size = names.length / 5;
-        if(names.length % 5 != 0){
-            size += 1;
+     public String[] solution(String[] names) {
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i < names.length; i++) {
+            if (i % 5 == 0) {
+                list.add(names[i]);
+            }
         }
-        answer = new String[size];
-        int idx = 0;
-        for(int i = 0; i < size; i++){
-            answer[i] = names[idx];
-            idx += 5;
+        String[] answer = new String[list.size()];
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = list.get(i);
         }
         return answer;
     }
+
+
 }
