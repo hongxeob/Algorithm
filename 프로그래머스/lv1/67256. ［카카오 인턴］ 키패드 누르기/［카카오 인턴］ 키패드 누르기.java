@@ -1,5 +1,5 @@
 class Solution {
-Position left;
+    Position left;
     Position right;
     Position numPos;
 
