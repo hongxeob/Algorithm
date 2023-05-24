@@ -1,11 +1,11 @@
 class Solution {
-    public String solution(String s) {
+public String solution(String s) {
         String answer = "";
-        String[] split = s.toLowerCase().split("");
+        String[] arr = s.toLowerCase().split("");
         boolean space = true;
-        for (String ss : split) {
-            answer += space ? ss.toUpperCase() : ss;
-            space = ss.equals(" ") ? true : false;
+        for (String s1 : arr) {
+            answer += space ? s1.toUpperCase() : s1;
+            space = s1.equals(" ") ? true : false;
         }
 
         return answer;
