@@ -1,21 +1,22 @@
 class Solution {
     boolean solution(String s) {
-        boolean answer = true;
-        int openCount = 0;
-        int closeCount = 0;
+        int open = 0;
+        int close = 0;
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == '(') {
-                openCount++;
+                open++;
             } else if (s.charAt(i) == ')') {
-                closeCount++;
+                close++;
             }
-            if (openCount < closeCount) {
+            if (open < close) {
                 return false;
             }
         }
-        if (openCount == closeCount) {
+        if (open == close) {
             return true;
         }
+
+
         return false;
     }
 }
