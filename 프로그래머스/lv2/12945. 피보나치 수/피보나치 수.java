@@ -1,5 +1,5 @@
 class Solution {
-    public static int solution(int n) {
+    public int solution(int n) {
         int[] D = new int[n + 1];
         D[0] = 0;
         D[1] = 1;
