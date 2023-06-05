@@ -1,6 +1,6 @@
 class Solution {
     public int solution(String message) {
-        int answer = message.length();
-        return answer*2;
+        String[] split = message.split("");
+        return split.length * 2;
     }
 }
