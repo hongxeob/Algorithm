@@ -1,7 +1,5 @@
 class Solution {
-    public String solution(String myString) {
-        String answer = "";
-        myString = myString.toLowerCase().replace("a", "A");
-        return myString;
+ public String solution(String myString) {
+        return myString.toLowerCase().replaceAll("a", "A");
     }
 }
