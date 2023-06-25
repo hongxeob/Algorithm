@@ -1,11 +1,17 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 class Solution {
     public int[] solution(int[] num_list) {
-        int[] answer = new int[num_list.length-5];
-        int idx =0;
+        List<Integer> list = new ArrayList<>();
         Arrays.sort(num_list);
-        for(int i=5; i<num_list.length; i++){
-            answer[idx++]=num_list[i];
+        for (int i = 5; i < num_list.length; i++) {
+            list.add(num_list[i]);
+        }
+        int[] answer = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            answer[i] = list.get(i);
         }
         return answer;
     }
