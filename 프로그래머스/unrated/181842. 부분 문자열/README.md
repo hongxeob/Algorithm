@@ -1,10 +1,10 @@
 # [unrated] 부분 문자열 - 181842 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181842?language=java) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181842) 
 
 ### 성능 요약
 
-메모리: 81.3 MB, 시간: 0.04 ms
+메모리: 77.1 MB, 시간: 0.03 ms
 
 ### 구분
 
