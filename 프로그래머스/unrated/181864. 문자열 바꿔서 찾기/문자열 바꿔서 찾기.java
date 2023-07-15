@@ -1,18 +1,14 @@
 class Solution {
     public int solution(String myString, String pat) {
         int answer = 0;
-        String result = "";
+        String str = "";
         for (int i = 0; i < myString.length(); i++) {
-            char c = myString.charAt(i);
-            if (c == 'A') {
-                result += "B";
+            if (myString.substring(i, i + 1).equals("A")) {
+                str += "B";
             } else {
-                result += "A";
+                str += "A";
             } 
         }
-        if (result.contains(pat)) {
-            answer = 1;
-        }
-        return answer;
+        return str.contains(pat) ? 1 : 0;
     }
 }
