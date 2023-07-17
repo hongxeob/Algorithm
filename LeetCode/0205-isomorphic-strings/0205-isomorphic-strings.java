@@ -1,10 +1,12 @@
-import java.util.*;
 class Solution {
-    public boolean isIsomorphic(String s, String t) {
+public boolean isIsomorphic(String s, String t) {
         HashMap<Character, Character> map = new HashMap<>();
-        for (int i = 0; i < s.length(); i++) {
+        int len = s.length();
+
+        for (int i = 0; i < len; i++) {
             char sc = s.charAt(i);
             char tc = t.charAt(i);
+
             if (i == 0) {
                 map.put(sc, tc);
             } else {
