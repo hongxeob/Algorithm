@@ -14,14 +14,9 @@ public class Main {
         }
         D[0] = 0;
         D[1] = 1;
-        fibo(n);
-        System.out.println(D[n]);
-    }
-
-    static int fibo(int n) {
-        if (D[n] != -1) {
-            return D[n];
+        for (int i = 2; i <= n; i++) {
+            D[i] = D[i - 1] + D[i - 2];
         }
-        return D[n] = fibo(n - 2) + fibo(n - 1);
+        System.out.println(D[n]);
     }
 }
