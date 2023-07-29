@@ -5,6 +5,7 @@ class Solution {
 
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
+
             if (!stack1.isEmpty() && c == '#') {
                 stack1.pop();
             } else {
@@ -13,8 +14,10 @@ class Solution {
                 }
             }
         }
+
         for (int i = 0; i < t.length(); i++) {
             char c = t.charAt(i);
+
             if (!stack2.isEmpty() && c == '#') {
                 stack2.pop();
             } else {
