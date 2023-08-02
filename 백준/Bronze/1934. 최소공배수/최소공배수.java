@@ -15,17 +15,11 @@ public class Main {
     }
 
     static int gcd(int a, int b) {
-        if (a < b) {
-            int temp = a;
-            a = b;
-            b = temp;
+        if (b == 0) {
+            return a;
+        } else {
+            return gcd(b, a % b);
         }
-        while (b != 0) {
-            int r = a % b;
-            a = b;
-            b = r;
-        }
-        return a;
     }
 
     static int lcm(int a, int b) {
