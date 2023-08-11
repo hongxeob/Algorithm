@@ -1,6 +1,7 @@
-import java.util.*;
+import java.util.Arrays;
+
 class Solution {
-public int solution(int[] people, int limit) {
+    public int solution(int[] people, int limit) {
         int answer = 0;
         Arrays.sort(people);
         int min = 0;
