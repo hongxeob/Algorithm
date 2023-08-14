@@ -1,10 +1,11 @@
 class Solution {
     public int solution(int n) {
-        String st = "";
-        while (n != 0) {
-            st += n % 3;
-            n /= 3;
-        }
-        return Integer.parseInt(st, 3);
+        int answer = 0;
+        String str = Integer.toString(n, 3);
+        String reversed = new StringBuilder(str).reverse().toString();
+
+        answer = Integer.parseInt(reversed, 3);
+
+        return answer;
     }
 }
