@@ -1,32 +1,23 @@
 import java.util.ArrayList;
 import java.util.List;
+
 class Solution {
-    static String[] arr;
-    static List<String> list;
-    public int solution(String word) {
-        int answer = 0;
-        list = new ArrayList<>();
-        arr = new String[]{"A", "E", "I", "O", "U"};
-        recursion(word, "", 0);
+   private static final char[] CHARS = "AEIOU".toCharArray();
 
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).equals(word)) {
-                answer = i;
-                break;
-            }
-        }
-
-        return answer;
+   public int solution(String word) {
+        return generate("").indexOf(word);
     }
 
-    static void recursion(String word, String str, int depth) {
-        list.add(str);
+    private List<String> generate(String word) {
+        //종료 조건, 점화식 구현
+        List<String> words = new ArrayList<>();
+        words.add(word);
 
-        if (depth == 5) {
-            return;
+        if (word.length() == 5) return words;
+
+        for (char c : CHARS) {
+            words.addAll(generate(word + c));
         }
-        for (int i = 0; i < arr.length; i++) {
-            recursion(word, str + arr[i], depth + 1);
-        }
+        return words;
     }
 }
