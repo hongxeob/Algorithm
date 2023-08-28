@@ -1,16 +1,23 @@
-import java.util.*;
-class Solution {
-    public int[] solution(int[] arr, int[] delete_list) {
+import java.util.ArrayList;
+import java.util.List;
 
-        ArrayList<Integer> list = new ArrayList<>();
-        for (int n : arr) {
-            list.add(n);
+class Solution {
+public int[] solution(int[] arr, int[] delete_list) {
+
+        List<Integer> list = new ArrayList<>();
+
+        for (int num : arr) {
+            list.add(num);
         }
-        for (int i : delete_list) {
-            list.remove((Integer) i);
+
+        for (int del : delete_list) {
+            int index = list.indexOf(del);
+            if (index != -1) {
+                list.remove(index);
+            }
         }
         int[] answer = new int[list.size()];
-        for (int i = 0; i < answer.length; i++) {
+        for (int i = 0; i < list.size(); i++) {
             answer[i] = list.get(i);
         }
         return answer;
