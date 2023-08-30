@@ -1,10 +1,10 @@
 # [unrated] 순서 바꾸기 - 181891 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181891?language=java) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/181891) 
 
 ### 성능 요약
 
-메모리: 78.6 MB, 시간: 0.11 ms
+메모리: 76.1 MB, 시간: 0.02 ms
 
 ### 구분
 
