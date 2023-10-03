@@ -1,13 +1,13 @@
 class Solution {
-    public int solution(int order) {
-        int answer = 0;
-        String strOrder = "" + order;
-        for (int i = 0; i < strOrder.length(); i++) {
-            char tempChar = strOrder.charAt(i);
-            if (tempChar == '3' || tempChar == '6' || tempChar == '9') {
-                answer++;
-            }
-        }
-        return answer;
-    }
+	public int solution(int order) {
+		int answer = 0;
+		String nums = String.valueOf(order);
+		String[] arr = nums.split("");
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i].equals("3") || arr[i].equals("6") || arr[i].equals("9")) {
+				answer++;
+			}
+		}
+		return answer;
+	}
 }
