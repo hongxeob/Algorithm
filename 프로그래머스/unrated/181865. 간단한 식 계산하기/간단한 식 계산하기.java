@@ -1,17 +1,15 @@
 class Solution {
-public int solution(String binomial) {
-        int answer = 0;
-        String[] arr = binomial.split(" ");
-        System.out.println("arr = " + arr);
+	public int solution(String binomial) {
+		int answer = 0;
+		String[] splitArr = binomial.split(" ");
 
-        if (arr[1].equals("+")) {
-            answer = Integer.parseInt(arr[0]) + Integer.parseInt(arr[2]);
-        } else if (arr[1].equals("-")) {
-            answer = Integer.parseInt(arr[0]) - Integer.parseInt(arr[2]);
-        } else {
-            answer = Integer.parseInt(arr[0]) * Integer.parseInt(arr[2]);
-        }
-
-        return answer;
-    }
+		if (splitArr[1].equals("+")) {
+			answer = Integer.valueOf(splitArr[0]) + Integer.valueOf(splitArr[2]);
+		} else if (splitArr[1].equals("-")) {
+			answer = Integer.valueOf(splitArr[0]) - Integer.valueOf(splitArr[2]);
+		} else if (splitArr[1].equals("*")) {
+			answer = Integer.valueOf(splitArr[0]) * Integer.valueOf(splitArr[2]);
+		}
+		return answer;
+	}
 }
