@@ -1,11 +1,8 @@
 class Solution {
-    public int solution(int a, int b) {
-        int answer = 0;
-        int second = 2 * a * b;
-        String aS = String.valueOf(a);
-        String bS = String.valueOf(b);
-        int first = Integer.parseInt(aS + bS);
+	public int solution(int a, int b) {
+		int first = Integer.parseInt(String.valueOf(a) + String.valueOf(b));
+		int second = 2 * a * b;
 
-        return Math.max(first, second);
-    }
+		return first > second ? first : second;
+	}
 }
