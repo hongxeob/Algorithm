@@ -1,21 +1,21 @@
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Scanner;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        int[] fib = new int[N + 1];
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int N = Integer.parseInt(st.nextToken());
+		int n = fibonacci(N);
 
-        for (int i = 0; i < fib.length; i++) {
-            if (i == 0) fib[0] = 0;
-            else if (i == 1) {
-                fib[1] = 1;
-            } else {
-                fib[i] = fib[i - 1] + fib[i - 2];
-            }
-        }
-        System.out.println(fib[N]);
-    }
+		System.out.println(n);
+	}
+
+	private static int fibonacci(int n) {
+		if (n < 2) return n;
+		return fibonacci(n - 1) + fibonacci(n - 2);
+	}
 }
