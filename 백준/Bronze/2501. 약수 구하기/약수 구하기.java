@@ -1,22 +1,25 @@
-import java.util.*;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
 	public static void main(String[] args) {
-		// 1.N,K 입력 받음
 		Scanner sc = new Scanner(System.in);
-		int N = sc.nextInt();
-		int K = sc.nextInt();
+		int n = sc.nextInt();
+		int k = sc.nextInt();
 
 		List<Integer> list = new ArrayList<>();
-		// 2. N의 약수 구한다.
-		for (int i = 1; i <= N; i++) {
-			if (N % i == 0) {
+		for (int i = 1; i <= n; i++) {
+			if (n % i == 0) {
 				list.add(i);
 			}
 		}
 
-		// 3. K-1 번째 숫자 구하기.
-		System.out.println(list.size() < K ? 0 : list.get(K - 1));
+		if (list.size() < k) {
+			System.out.println(0);
+		} else {
+			System.out.println(list.get(k-1));
+		}
 	}
 }
