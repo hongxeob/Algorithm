@@ -1,28 +1,27 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Main {
 
-	public static void main(String[] args) {
-		// 1.N,K 입력 받음
-		Scanner sc = new Scanner(System.in);
-		int t = sc.nextInt();
-		int[] n = new int[t];
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int T = Integer.parseInt(br.readLine());
+		int[] n = new int[T];
 
-		for (int i = 0; i < t; i++) {
-			n[i] = sc.nextInt();
-		}
-
-		for (int j = 0; j < t; j++) {
-			String binaryString = Integer.toBinaryString(n[j]);
+		for (int i = 0; i < n.length; i++) {
+			String binaryString = Integer.toBinaryString(Integer.parseInt(br.readLine()));
 			StringBuffer sb = new StringBuffer(binaryString);
 			String reverse = sb.reverse().toString();
 			String[] arr = reverse.split("");
 
-			for (int k = 0; k < arr.length; k++) {
-				if (arr[k].equals("1")) {
-					System.out.print(k + " ");
+			for (int j = 0; j < arr.length; j++) {
+				if (arr[j].equals("1")) {
+					System.out.print(j + " ");
 				}
 			}
 		}
+		
 		System.out.println();
 	}
 }
