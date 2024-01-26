@@ -20,8 +20,6 @@ public class Main {
 				sum += i;
 			}
 		}
-
-		Collections.sort(list);
         
 		if (list.size() == 0) {
 			System.out.println(-1);
