@@ -1,31 +1,35 @@
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
+	public static void main(String[] args) {
 
-        int cnt = 0;
-        for (int i = 0; i < N; i++) {
-            boolean isPrime = true;
-            int num = sc.nextInt();
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int cnt = 0;
 
-            if (num == 1) {
-                continue;
-            }
-            for (int j = 2; j <= Math.sqrt(num); j++) {
-                if (num % j == 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
-            if (isPrime) {
-                cnt++;
-            }
-        }
-        System.out.println(cnt);
+		for (int i = 0; i < n; i++) {
+			boolean checkPrimeNum = false;
+			int num = sc.nextInt();
+			checkPrimeNum = isPrime(num);
+			if (checkPrimeNum) {
+				cnt++;
+			}
+		}
+		System.out.println(cnt);
+	}
 
-    }
+	private static boolean isPrime(int num) {
+		if (num < 2) {
+			return false;
+		}
+
+		for (int i = 2; i <= Math.sqrt(num); i++) {
+			if (num % i == 0) {
+				return false;
+			}
+		}
+
+		return true;
+	}
 }
