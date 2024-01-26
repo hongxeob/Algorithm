@@ -1,36 +1,47 @@
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);
-        int M = sc.nextInt();
-        int N = sc.nextInt();
-        int min = N;
-        int sum = 0;
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		int sum = 0;
+		List<Integer> list = new ArrayList<>();
 
-        for (int i = M; i <= N; i++) {
-            boolean check = true;
+		for (int i = a; i <= b; i++) {
+			boolean prime = false;
+			prime = isPrime(i);
+			if (prime) {
+				list.add(i);
+				sum += i;
+			}
+		}
 
-            if (i == 1) check = false;
+		Collections.sort(list);
+        
+		if (list.size() == 0) {
+			System.out.println(-1);
+		} else {
+			System.out.println(sum);
+			System.out.println(list.get(0));
+		}
+	}
 
-            for (int j = 2; j < i; j++) {
-                if (i % j == 0) {
-                    check = false;
-                    break;
-                }
-            }
-            if (check) {
-                if (min > i) min = i;
-                sum += i;
-            }
-        }
-        if (sum == 0) {
-            System.out.println(-1);
-        } else {
-            System.out.println(sum);
-            System.out.println(min);
-        }
-    }
+	public static boolean isPrime(int num) {
+		if (num < 2) {
+			return false;
+		}
+
+		for (int i = 2; i <= Math.sqrt(num); i++) {
+			if (num % i == 0) {
+				return false;
+			}
+		}
+
+		return true;
+	}
 }
