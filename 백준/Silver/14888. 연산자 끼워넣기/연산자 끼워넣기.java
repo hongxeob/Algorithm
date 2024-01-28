@@ -5,59 +5,67 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class Main {
-	static int N;
-	static int max = Integer.MIN_VALUE;
-	static int min = Integer.MAX_VALUE;
-	static ArrayList<Integer> num = new ArrayList<>();
-	static ArrayList<Integer> operator = new ArrayList<>();
+	 public static int MAX = Integer.MIN_VALUE;    // 최댓값
+    public static int MIN = Integer.MAX_VALUE;    // 최솟값
+    public static int[] operator = new int[4];    // 연산자 개수
+    public static int[] number;                    // 숫자
+    public static int N;                        // 숫자 개수
 
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		N = Integer.parseInt(br.readLine());
-		StringTokenizer str1 = new StringTokenizer(br.readLine());
-		StringTokenizer str2 = new StringTokenizer(br.readLine());
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		for (int i = 0; str1.hasMoreTokens(); i++) {
-			num.add(Integer.parseInt(str1.nextToken()));
-		}
+        N = Integer.parseInt(br.readLine());
+        number = new int[N];
 
-		for (int i = 0; str2.hasMoreTokens(); i++) {
-			operator.add(Integer.parseInt(str2.nextToken()));
-		}
-		dfs(num.get(0), 1);
-		System.out.println(max);
-		System.out.println(min);
-	}
+        // 숫자 입력
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        for (int i = 0; i < N; i++) {
+            number[i] = Integer.parseInt(st.nextToken());
+        }
 
-	public static void dfs(int a, int depth) {
-		//종료 조건
-		if (depth == N) {
-			max = Math.max(max, a);
-			min = Math.min(min, a);
-			return;
-		}
+        // 연산자 입력
+        st = new StringTokenizer(br.readLine(), " ");
+        for (int i = 0; i < 4; i++) {
+            operator[i] = Integer.parseInt(st.nextToken());
+        }
 
-		//반복 실행문
-		for (int i = 0; i < 4; i++) {
-			if (operator.get(i) > 0) {
-				operator.set(i, operator.get(i) - 1);
+        dfs(number[0], 1);
+        System.out.println(MAX);
+        System.out.println(MIN);
 
-				switch (i) {
-					case 0:
-						dfs(a + num.get(depth), depth + 1);
-						break;
-					case 1:
-						dfs(a - num.get(depth), depth + 1);
-						break;
-					case 2:
-						dfs(a * num.get(depth), depth + 1);
-						break;
-					case 3:
-						dfs(a / num.get(depth), depth + 1);
-						break;
-				}
-				operator.set(i, operator.get(i) + 1);
-			}
-		}
-	}
+    }
+
+    public static void dfs(int num, int idx) {
+        if (idx == N) {
+            MAX = Math.max(MAX, num);
+            MIN = Math.min(MIN, num);
+            return;
+        }
+
+        for (int i = 0; i < 4; i++) {
+            // 연산자 개수가 1개 이상인 경우
+            if (operator[i] > 0) {
+                // 해당연산자를 1 감소시킨다
+                operator[i]--;
+
+                switch (i) {
+                    case 0:
+                        dfs(num + number[idx], idx + 1);
+                        break;
+                    case 1:
+                        dfs(num - number[idx], idx + 1);
+                        break;
+                    case 2:
+                        dfs(num * number[idx], idx + 1);
+                        break;
+                    case 3:
+                        dfs(num / number[idx], idx + 1);
+                        break;
+                }
+
+                // 재귀 호출이 종료되면 다시 해당 연산자 개수를 복구
+                operator[i]++;
+            }
+        }
+    }
 }
