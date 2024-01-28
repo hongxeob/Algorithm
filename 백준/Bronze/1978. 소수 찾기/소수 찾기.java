@@ -5,31 +5,26 @@ public class Main {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
+		int t = sc.nextInt();
 		int cnt = 0;
 
-		for (int i = 0; i < n; i++) {
-			boolean checkPrimeNum = false;
+		for (int i = 0; i < t; i++) {
 			int num = sc.nextInt();
-			checkPrimeNum = isPrime(num);
-			if (checkPrimeNum) {
+			if (isPrime(num)) {
 				cnt++;
 			}
 		}
 		System.out.println(cnt);
+
 	}
 
-	private static boolean isPrime(int num) {
-		if (num < 2) {
-			return false;
-		}
-
-		for (int i = 2; i <= Math.sqrt(num); i++) {
-			if (num % i == 0) {
+	public static boolean isPrime(int n) {
+		if (n < 2) return false;
+		for (int i = 2; i <= Math.sqrt(n); i++) {
+			if (n % i == 0) {
 				return false;
 			}
 		}
-
 		return true;
 	}
 }
