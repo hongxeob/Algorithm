@@ -6,14 +6,17 @@ public class Main {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		int[] a = new int[10];
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < 10; j++) {
-				a[j] = sc.nextInt();
+		int t = sc.nextInt();
+
+		int[] n = new int[10];
+
+		for (int i = 0; i < t; i++) {
+			for (int j = 0; j < n.length; j++) {
+				n[j] = sc.nextInt();
 			}
-			Arrays.sort(a);
-			System.out.println(a[7]);
+			Arrays.sort(n);
+			
+			System.out.println(n[7]);
 		}
 
 	}
