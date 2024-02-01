@@ -5,11 +5,12 @@ import java.util.Stack;
 
 public class Main {
 
+
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String input = br.readLine();
 		Stack<Character> stack = new Stack<>();
 
+		String input = br.readLine();
 		int result = 0;
 		int tmp = 1;
 
@@ -19,15 +20,13 @@ public class Main {
 
 			switch (c) {
 				case '(':
-					stack.add('(');
+					stack.add(c);
 					tmp *= 2;
 					break;
-
 				case '[':
-					stack.add('[');
+					stack.add(c);
 					tmp *= 3;
 					break;
-
 				case ')':
 					if (stack.isEmpty() || stack.peek() != '(') {
 						result = 0;
@@ -38,7 +37,6 @@ public class Main {
 						tmp /= 2;
 					}
 					break;
-
 				case ']':
 					if (stack.isEmpty() || stack.peek() != '[') {
 						result = 0;
@@ -51,9 +49,7 @@ public class Main {
 					break;
 			}
 		}
-
 		if (!stack.isEmpty()) System.out.println(0);
 		else System.out.println(result);
 	}
-
 }
