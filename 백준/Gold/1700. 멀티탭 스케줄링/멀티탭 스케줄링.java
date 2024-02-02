@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -6,44 +7,48 @@ import java.util.Set;
 
 public class Main {
 
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws IOException {
 		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		int k = sc.nextInt();
+		int N = sc.nextInt();
+		int K = sc.nextInt();
+		List<Integer> rotation = new ArrayList<>();
 
-		List<Integer> list = new ArrayList<>();
-
-		for (int i = 0; i < k; i++) {
-			list.add(sc.nextInt());
+		for (int i = 0; i < K; i++) {
+			rotation.add(sc.nextInt());
 		}
 
-		Set<Integer> set = new HashSet<>();
-
+		Set<Integer> using = new HashSet<>();
 		int cnt = 0;
-		for (int i = 0; i < k; i++) {
-			int num = list.get(i);
-			if (set.contains(num)) continue;
-			if (set.size() < n && set.add(num)) continue;
+
+		for (int i = 0; i < K; i++) {
+			int goods = rotation.get(i);
+			if (using.contains(goods)) continue;
+			if (using.size() < N && using.add(goods)) continue;
 
 			int max = -1, idx = -1;
-			for (int s : set) {
-				int temp = 0;
-				List<Integer> sub = list.subList(i + 1, k);
-				if (sub.contains(s)) {
-					temp = sub.indexOf(s) + 1;
+
+			for (int socketInGoods : using) {
+				int distance = 0;
+				List<Integer> sub = rotation.subList(i + 1, K);
+
+				//만약 교체하려는 용품이 현재 위치 이후의 전체 용품 순서중에 존재하는지 확인
+				if (sub.contains(socketInGoods)) {
+					//얼마나 멀리 있는지 확인
+					distance = sub.indexOf(socketInGoods) + 1;
+				//나타나지 않았을 때
 				} else {
-					temp = k - i - 1;
+					distance = K - i - 1;
 				}
-				if (temp > max) {
-					max = temp;
-					idx = s;
+				if (distance > max) {
+					max = distance;
+					idx = socketInGoods;
 				}
 			}
-			set.remove(idx);
-			set.add(num);
+			using.remove(idx);
+			using.add(goods);
 			cnt++;
 		}
 		System.out.println(cnt);
+		
 	}
 }
