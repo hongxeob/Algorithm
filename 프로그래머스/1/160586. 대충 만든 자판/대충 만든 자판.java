@@ -7,8 +7,8 @@ class Solution {
 		for (int i = 0; i < keymap.length; i++) {
 			for (int j = 0; j < keymap[i].length(); j++) {
 				if (keypad.containsKey(keymap[i].charAt(j))) {
-					Integer current = keypad.get(keymap[i].charAt(j));
-					if (current > (j + 1)) {
+					Integer curr = keypad.get(keymap[i].charAt(j));
+					if (curr > j + 1) {
 						keypad.put(keymap[i].charAt(j), j + 1);
 					}
 				} else {
@@ -17,18 +17,18 @@ class Solution {
 			}
 		}
 		for (int i = 0; i < targets.length; i++) {
-			int nCnt = 0;
+			int cnt = 0;
 			for (int j = 0; j < targets[i].length(); j++) {
 				char alpha = targets[i].charAt(j);
-				Integer nMinClick = keypad.get(alpha);
-				if (nMinClick != null) {
-					nCnt += nMinClick;
+				Integer minClick = keypad.get(alpha);
+				if (minClick != null) {
+					cnt += minClick;
 				} else {
-					nCnt = -1;
+					cnt = -1;
 					break;
-				}
+				} 
 			}
-			answer[i] = nCnt;
+			answer[i] = cnt;
 		}
 		return answer;
 	}
