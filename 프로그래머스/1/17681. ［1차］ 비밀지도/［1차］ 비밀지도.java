@@ -15,7 +15,7 @@ public String[] solution(int n, int[] arr1, int[] arr2) {
 				}
 				if (a1.charAt(j) == '1' || a2.charAt(j) == '1') {
 					result += "#";
-				} else if (a1.charAt(j) == '0' || a2.charAt(j) == '0') {
+				} else if (a1.charAt(j) == '0' && a2.charAt(j) == '0') {
 					result += " ";
 				}
 				answer[i] = result;
@@ -24,3 +24,4 @@ public String[] solution(int n, int[] arr1, int[] arr2) {
 		return answer;
 	}
 }
+
