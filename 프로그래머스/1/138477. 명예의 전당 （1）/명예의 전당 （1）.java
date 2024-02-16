@@ -1,6 +1,6 @@
 import java.util.*;
 class Solution {
-    public int[] solution(int k, int[] score) {
+	public int[] solution(int k, int[] score) {
 		int[] answer = new int[score.length];
 		//리스트 만들기
 		ArrayList<Integer> daily = new ArrayList<>();
@@ -21,6 +21,7 @@ class Solution {
 				answer[i] = daily.get(0);
 			}
 		}
+
 		return answer;
 	}
 }
