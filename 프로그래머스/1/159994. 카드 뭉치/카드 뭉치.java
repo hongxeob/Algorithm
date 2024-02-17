@@ -1,7 +1,6 @@
 class Solution {
 	public String solution(String[] cards1, String[] cards2, String[] goal) {
 		String answer = "Yes";
-
 		int card1Idx = 0;
 		int card2Idx = 0;
 
