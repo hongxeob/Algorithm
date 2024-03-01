@@ -1,17 +1,13 @@
 class Solution {
-    	public int solution(int[] nums) {
+        public int solution(int[] nums) {
 		int answer = 0;
 
-		//3단for문을 돈다
 		for (int i = 0; i < nums.length; i++) {
 			for (int j = i + 1; j < nums.length; j++) {
 				for (int k = j + 1; k < nums.length; k++) {
 					int sum = 0;
-					sum += nums[i] + nums[j] + nums[k];
-					//더한값이 prime인지 확인
-					if (isPrime(sum)) {
-						answer++;
-					}
+					sum = nums[i] + nums[j] + nums[k];
+					answer += isPrime(sum) ? 1 : 0;
 				}
 			}
 		}
@@ -23,7 +19,7 @@ class Solution {
 			return false;
 		}
 
-		for (int i = 2; i <= Math.sqrt(n); i++) {
+		for (int i = 2; i < n; i++) {
 			if (n % i == 0) {
 				return false;
 			}
