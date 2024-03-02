@@ -1,9 +1,10 @@
 import java.util.*;
 class Solution {
-    public int[] solution(int N, int[] stages) {
-            Map<Integer, Double> map = new HashMap<>();
+    	public int[] solution(int N, int[] stages) {
+		Map<Integer, Double> map = new HashMap<>();
 
-            for (int i = 1; i <= N; i++) {
+
+		for (int i = 1; i <= N; i++) {
                 double total = 0;
                 double fail = 0;
                 for (int j = 0; j < stages.length; j++) {
@@ -17,6 +18,7 @@ class Solution {
             }
 
             int[] answer = new int[N];
+						//내림차순으로 저장
             for (int i = 0; i < N; i++) {
                 double max = -1;
                 int rKey = 0;
@@ -35,4 +37,3 @@ class Solution {
             return answer;
         }
 }
-

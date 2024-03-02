@@ -1,6 +1,6 @@
 # [level 1] 실패율 - 42889 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42889?language=java) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42889) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 03월 02일 17:28:06
+2024년 03월 02일 17:50:54
 
 ### 문제 설명
 
