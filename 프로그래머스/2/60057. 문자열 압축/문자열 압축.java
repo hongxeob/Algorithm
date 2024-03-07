@@ -1,11 +1,9 @@
 import java.util.*;
 
 class Solution {
-    	public int solution(String s) {
+    public int solution(String s) {
 		int min = Integer.MAX_VALUE;
-		//길이를 한글자부터 s길이만큼 1)잘라서 2)압축 해보고 3)길이 비교
 		for (int length = 1; length <= s.length(); length++) {
-			//3. 길이비교
 			int compressed = compressed(s, length);
 			if (compressed < min) {
 				min = compressed;
@@ -14,48 +12,40 @@ class Solution {
 		return min;
 	}
 
-	//2.압축한 길이
-	private int compressed(String src, int len) {
-		StringBuilder sb = new StringBuilder();
-
-		//직전 문자
+	private static int compressed(String src, int len) {
 		String last = "";
-		//직전 문자 등장 횟수
-		int cnt = 0;
+		int count = 0;
+		StringBuilder sb = new StringBuilder();
+		List<String> list = getStrings(src, len);
 
-		List<String> split = split(src, len);
-
-		for (String token : split) {
+		for (String token : list) {
 			if (token.equals(last)) {
-				cnt++;
+				count++;
 			} else {
-				if (cnt > 1) {
-					sb.append(cnt);
+				if (count > 1) {
+					sb.append(count);
 				}
 				sb.append(last);
 				last = token;
-				cnt = 1;
+				count = 1;
 			}
 		}
-		//마지막 토큰은 last에 담겼지만 압축 문자열에는 포함 안되어 있으므로 한번더
-		if (cnt > 1) {
-			sb.append(cnt);
+		if (count > 1) {
+			sb.append(count);
 		}
 		sb.append(last);
 
 		return sb.length();
 	}
 
-	//1.문자를 length만큼 잘라서 배열로
-	private List<String> split(String src, int len) {
-		List<String> arr = new ArrayList<>();
+	private static List<String> getStrings(String s, int length) {
+		List<String> list = new ArrayList<>();
 
-		for (int startIdx = 0; startIdx < src.length(); startIdx += len) {
-			int endIdx = startIdx + len;
-			if (endIdx > src.length()) endIdx = src.length();
-			arr.add(src.substring(startIdx, endIdx));
+		for (int startIdx = 0; startIdx < s.length(); startIdx+=length) {
+			int endIdx = startIdx + length;
+			if (endIdx > s.length()) endIdx = s.length();
+			list.add(s.substring(startIdx, endIdx));
 		}
-
-		return arr;
+		return list;
 	}
 }
