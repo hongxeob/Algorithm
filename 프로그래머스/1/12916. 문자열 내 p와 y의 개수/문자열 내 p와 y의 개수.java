@@ -1,23 +1,29 @@
 class Solution {
-   	boolean solution(String s) {
+   boolean solution(String s) {
 		boolean answer = true;
-		String[] arr = s.toLowerCase().split("");
-		int pCount = 0;
-		int yCount = 0;
-		for (int i = 0; i < arr.length; i++) {
-			if (arr[i].equals("p")) {
-				pCount++;
-			} else if (arr[i].equals("y")) {
-				yCount++;
+		int yCnt = 0;
+		int pCnt = 0;
+
+		//소문자로 전환
+		s = s.toLowerCase();
+		for (char c : s.toCharArray()) {
+			//배열로 바꾼후 p,y 등장시 각 카운팅
+			if (c == 'y') {
+				yCnt++;
+			} else if (c == 'p') {
+				pCnt++;
 			}
 		}
 
-		if (pCount == yCount) {
+		//하나도 없으면 true
+		if (yCnt == 0 && pCnt == 0) {
+			answer = true;
+		}
+		if (yCnt == pCnt) {
 			answer = true;
 		} else {
 			answer = false;
-		}
-
+		} 
 		return answer;
 	}
 }
