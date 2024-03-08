@@ -1,5 +1,5 @@
 class Solution {
-    	public int[] solution(String s) { // 110010101001
+public int[] solution(String s) { // 110010101001
 		int[] answer = new int[2];
 		int loop = 0;
 		int removed = 0;
@@ -17,8 +17,10 @@ class Solution {
 			int ones = s.length() - zero;
 			s = Integer.toString(ones, 2);
 		}
+
 		answer[0] = loop;
 		answer[1] = removed;
 		return answer;
 	}
+
 }
