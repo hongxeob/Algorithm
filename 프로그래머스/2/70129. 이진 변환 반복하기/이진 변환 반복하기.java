@@ -1,6 +1,6 @@
 class Solution {
 	public int[] solution(String s) { 
-		int[] answer = new int[2];
+		int[] answer = new int[2] ;
 		int loop = 0;
 		int removed = 0;
 		while (!s.equals("1")) {
