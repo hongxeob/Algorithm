@@ -8,7 +8,6 @@ public int solution(int n) {
 				temp = temp + j;
 				if (temp == n) {
 					answer++;
-					break;
 				} else if (temp > n) {
 					break;
 				}
