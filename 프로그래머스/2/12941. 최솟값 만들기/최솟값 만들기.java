@@ -1,22 +1,16 @@
-import java.util.Collections;
-import java.util.PriorityQueue;
-
+import java.util.*;
 class Solution
 {
-    public static int solution(int[] A, int[] B) {
-		int ans = 0;
-		PriorityQueue<Integer> a = new PriorityQueue<>();
-		PriorityQueue<Integer> b = new PriorityQueue<>(Collections.reverseOrder());
+   public int solution(int[] A, int[] B) {
+		int answer = 0;
+
+		Arrays.sort(A);
+		Arrays.sort(B);
 
 		for (int i = 0; i < A.length; i++) {
-			a.add(A[i]);
-			b.add(B[i]);
+			answer += A[i] * B[B.length - 1 - i];
 		}
 
-		while (!a.isEmpty()) {
-			ans += a.poll() * b.poll();
-		}
-
-		return ans;
+		return answer;
 	}
 }
