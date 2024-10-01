@@ -5,10 +5,6 @@ class Solution {
 		for (int i = 1; i <= count; i++) {
 			rest += price * i;
 		}
-		if (rest <= money) {
-			return answer;
-		} else {
-			return rest - money;
-		}
+		return rest <= money ? answer : rest - money;
 	}
 }
